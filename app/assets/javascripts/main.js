@@ -22,8 +22,8 @@ app.factory('UserPost', ['$resource', function($resource) {
 }]);
 
 app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', function($scope, AdminPost, UserPost) {
-    $scope.adminPosts = [];
-    $scope.userPosts = [];
+    // $scope.adminPosts = [];
+    // $scope.userPosts = [];
 
     AdminPost.query(function(posts) {
       $scope.adminPosts = posts;

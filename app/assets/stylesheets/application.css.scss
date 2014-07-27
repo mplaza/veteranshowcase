@@ -15,8 +15,7 @@
  *= require foundation
  *= require_self
  */
-
-.main {
+body, .main {
 	background-color: #dbdad5;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -31,12 +30,16 @@
 .description {
 	padding: 10px;
 }
-.title {
+h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 	color: black;
+	font-size: 14px;
 }
-.title:hover {
+a {
+	color: black;
+}
+a:hover {
 	color: #595959;
 }
 .description-footer {
