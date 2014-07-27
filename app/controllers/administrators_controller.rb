@@ -1,6 +1,10 @@
 class AdministratorsController < ApplicationController
 
-before_action :authenticate_user, :only => [:settings]
+before_action :authenticate_user, :only => [:index, :settings]
+	
+	def index
+
+	end
 
 respond_to :json, :html
 
@@ -92,7 +96,7 @@ respond_to :json, :html
 	def authenticate_user
     	if !current_admin
       		flash[:danger] = "Sorry buddy, you don't have access."
-      		redirect_to root_path
+      		redirect_to posts_path
     	end
 	end
 

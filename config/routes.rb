@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   delete 'filteredwords/:id' => 'administrators#filteredworddestroy', as: :filteredword
   get 'filteredwords' => 'administrators#returnfilteredwords'
 
-  root 'posts#main'
+  get 'admin/' => 'administrators#index', as: :admin
+  root 'administrators#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
