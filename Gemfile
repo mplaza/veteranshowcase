@@ -22,6 +22,7 @@ gem 'rails_12factor'
 
 
 gem 'httparty'
+gem 'nokogiri'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
