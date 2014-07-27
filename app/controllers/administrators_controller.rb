@@ -1,5 +1,4 @@
 class AdministratorsController < ApplicationController
-
 	def settings
 		@admin = Admin.first
 		# @keywords = Admin.all[0].keywords.split(" OR ")
@@ -93,5 +92,4 @@ class AdministratorsController < ApplicationController
 	def filteredword_params
 		params.require(:filteredwords).permit(:negativesearch, :admin_id)
 	end
-
 end
