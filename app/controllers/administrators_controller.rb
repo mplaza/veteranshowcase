@@ -6,6 +6,8 @@ before_action :authenticate_user, :only => [:index, :settings]
 		
 	end
 
+respond_to :json, :html
+
 	def settings
 		@admin = Admin.first
 		# @keywords = Admin.all[0].keywords.split(" OR ")
@@ -81,6 +83,10 @@ before_action :authenticate_user, :only => [:index, :settings]
 
 	end
 
+	def returnfilteredwords
+		@filteredwords = Filteredwords.all
+		respond_with @filteredwords
+	end
 	def filteredworddestroy
 		@filteredword = Filteredwords.find(params[:id])
 		@filteredword.destroy

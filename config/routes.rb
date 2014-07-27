@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   delete 'authors/:id' => 'administrators#authordestroy', as: :author
 
 
+
   get 'filteredwords/new' => 'administrators#newfilteredword', as: :new_filteredword
   post 'filteredwords/new' => 'administrators#filteredwordcreate'
   delete 'filteredwords/:id' => 'administrators#filteredworddestroy', as: :filteredword
+  get 'filteredwords' => 'administrators#returnfilteredwords'
 
   get 'admin/' => 'administrators#index', as: :admin
   root 'administrators#index'

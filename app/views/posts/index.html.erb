@@ -28,7 +28,10 @@
 <div class="row">
 	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
-			<li x-ng-repeat="adminPost in adminPosts | filter: {title: searchTerm} "> 		
+			<li x-ng-repeat="adminPost in adminPosts | myFilter:filteredwords | filter: searchTerm "> 		
+
+<!-- 			filteredwords[0].negativesearch -->
+
 				<div class="post shadow">
 					<a href="{{adminPost.url}}" target="_blank">
 						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
