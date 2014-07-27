@@ -1,21 +1,30 @@
 class Post < ActiveRecord::Base
 
 	def self.party(keywords, authors)
+		keywords = "veteran OR cat OR poodle"
+		keywords = keywords.split(" OR ")
+		puts keywords
 
-		feedzilla(keywords)
+		@results = []
 
+		keywords.each do |k|
+			feedzilla(k)
+		end 
 		
+		@results = @results.flatten
+		@results
 	end
 
 
-	def feedzilla(keywords)
-		keyword ||= "veteran"
+	def self.feedzilla(keywords)
+		keywords ||= "veteran"
 
-		auth = { query: { q: keyword }} 
+		auth = { query: { q: keywords }} 
 		search_url = "http://api.feedzilla.com/v1/articles/search.json"
 		
 		response = HTTParty.get search_url, auth
-		response.parsed_response["articles"]
+		
+		@results << response.parsed_response["articles"]
 	end
 
 

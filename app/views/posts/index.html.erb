@@ -1,6 +1,5 @@
-<h1>Feedzilla</h1>
+<% @results.each do |a| %>
 
+	<p> <%= a["title"] %> </p>
 
-<% @articles.each do |a| %>
-	<p><%= a["title"] %>, <%= a["source"] %> </p>
 <% end %>
