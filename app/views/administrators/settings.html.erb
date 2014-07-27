@@ -27,11 +27,11 @@ Authors:
 	<%= f.submit 'New Author', :class => "button disabled expand" %>
 <% end %>
 
-Filtered Words: 
+Excluded Words: 
 <br></br>
 <% @filteredwords.each do |k| %>
 	<div class="button"><%= k.negativesearch %>
-	<%= link_to 'Delete', filteredword_path(k), method: :delete, data: {confirm: "Are you sure you want to delete this permanently?"}, :class => "closex" %></div>
+	<%= link_to 'x', filteredword_path(k), method: :delete, data: {confirm: "Are you sure you want to delete this permanently?"}, :class => "closex" %></div>
 <% end %>
 
 <%= form_for @filteredword, url: new_filteredword_path do |f| %>
