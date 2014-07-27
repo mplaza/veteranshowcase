@@ -10,27 +10,24 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
  *= require foundation_and_overrides
  *= require foundation
+ *= require_self
  */
-
 
 .main {
 	background-color: #dbdad5;
+	font-family: 'Open Sans', sans-serif;
 }
-
 .post {
 	background-color: white;
 }
-
 .shadow {
   -moz-box-shadow:    2px 2px 5px 0px #7d7d7d;
   -webkit-box-shadow: 2px 2px 5px 0px #7d7d7d;
   box-shadow:         2px 2px 5px 0px #7d7d7d;
 }
-
 .description {
 	padding: 10px;
 }
@@ -45,4 +42,7 @@
 .description-footer {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 10px;
+}
+.filters {
+	padding-bottom: 30px;
 }
