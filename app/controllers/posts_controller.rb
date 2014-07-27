@@ -22,6 +22,5 @@ def authenticate_user
     end
 end
 
-	end
 
 end
