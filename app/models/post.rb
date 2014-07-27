@@ -19,7 +19,6 @@ class Post < ActiveRecord::Base
 		huffington_post
 			
 		@results = @results.flatten
-
 		@results
 	end
 
