@@ -1,6 +1,10 @@
 class AdministratorsController < ApplicationController
 
-before_action :authenticate_user, :only => [:settings]
+before_action :authenticate_user, :only => [:index, :settings]
+	
+	def index
+
+	end
 
 	def settings
 		@admin = Admin.first
@@ -86,7 +90,7 @@ before_action :authenticate_user, :only => [:settings]
 	def authenticate_user
     	if !current_admin
       		flash[:danger] = "Sorry buddy, you don't have access."
-      		redirect_to root_path
+      		redirect_to posts_path
     	end
 	end
 
