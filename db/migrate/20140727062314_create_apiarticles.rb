@@ -1,6 +1,6 @@
-class CreateApiarticles < ActiveRecord::Migration
+class CreateSearchresults < ActiveRecord::Migration
   def change
-    create_table :apiarticles do |t|
+    create_table :searchresults do |t|
       t.string :title
       t.string :publication
       t.boolean :favorite
