@@ -14,19 +14,27 @@ class Post < ActiveRecord::Base
 
 		keywords.each do |k|
 			feedzilla(k.searchterm)
+			# homes100k(k.searchterm)
 		end 
 		
-		huffington_post
+		authors.each do |a|
+			huffington_post(a.searchauthor)
+		end
+
+		# huffington_post
+
+		bluestarfam()
+		bobwoodruff()
+		vetssyracuse()
 			
+		
 		@results = @results.flatten
 		@results
 	end
 
 
-	def self.feedzilla(keywords)
-		keywords ||= "veteran"
-
-		auth = { query: { q: keywords }} 
+	def self.feedzilla(keyword)
+		auth = { query: { q: keyword }} 
 		search_url = "http://api.feedzilla.com/v1/articles/search.json"
 		
 		response = HTTParty.get search_url, auth
@@ -38,8 +46,11 @@ class Post < ActiveRecord::Base
 	end
 
 
-	def self.huffington_post
-		url = "http://www.huffingtonpost.com/author/index.php?author=chris-marvin"
+	def self.huffington_post(author)
+
+		author = author.split(" ").join("-")
+
+		url = "http://www.huffingtonpost.com/author/index.php?author=" + author
 		doc = Nokogiri::HTML(open(url))
 
 		doc.css("entry").each do |item|
@@ -47,6 +58,53 @@ class Post < ActiveRecord::Base
 			@results << article
 		end
 	end
+
+	# def self.homes100k(keyword)
+ #    	url = "http://100khomes.org/search/node/" + keyword
+ #    	doc = Nokogiri::HTML(open(url))
+    	
+ #    	doc.css("title").each do |item|
+ #    		article = { "title" => item.at_css(".title").text, "author" => "", "publication" => "100k Homes Blog", "url" => "", "image_url" => "",  "publish_date" => DateTime.parse("")}
+ #    	@results << article
+ #    end
+ #  end
+
+   def self.bluestarfam
+    url = "http://bluestarfam.org/blog"
+    doc = Nokogiri::HTML(open(url))
+
+    doc.css(".content-item").each do |item|
+
+    	article = { "title" => item.at_css("h2").text, "publication" => "Blue Star", "url" => url+ item.at_css("a")["href"] }
+
+      @results << article
+    end
+  end
+
+  	def self.bobwoodruff
+
+		url = "http://bobwoodrufffoundation.org/bwf-news/"
+		doc = Nokogiri::HTML(open(url))
+
+		doc.css(".holder").each do |item|
+			article = { "title" => item.at_css("a").text, "publication" => "Bob Woodruff Foundation", "url" => item.at_css("a")["href"], "publish_date" => DateTime.parse(item.at_css(".meta").text) }
+			@results << article
+		end
+
+	end
+
+
+	def self.vetssyracuse
+    	url = "http://vets.syr.edu/feed/"
+   		doc = Nokogiri::XML(open(url))
+
+    doc.css("item").each do |item|
+
+    	article = { "title" => item.at_css("title").text, "author" => item.at_xpath("dc:creator").text, "publication" => "Vets Syracuse", "url" => item.at_xpath("link").text, "publish_date" => DateTime.parse(item.at_xpath("pubDate").text)}
+
+    	@results << article
+    end
+  end
 
 
 end
