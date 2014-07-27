@@ -67,7 +67,7 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', f
       });
     }
 
-    $scope.savePost = function() {
+    $scope.featurePost = function() {
       $scope.selectedPost.approved = true;
       $scope.selectedPost.favorite = true;
       $scope.newUserPost = $scope.selectedPost;
