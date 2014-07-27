@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class AdminpostsController < ApplicationController
 	respond_to :json, :html
 
 	def index
@@ -7,9 +7,4 @@ class PostsController < ApplicationController
 		@results = Post.party(@keywords, @authors).sort_by {|result| result["publish_date"]}.reverse
 		respond_with @results
 	end
-
-	def main
-
-	end
-
 end
