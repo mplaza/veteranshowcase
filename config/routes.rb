@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :posts
 
-  get 'admins/settings' => 'administrators#settings'
+  get 'admins/settings' => 'administrators#settings', as: :settings
+  patch 'admins/settings' => 'administrators#update', as: :update_settings
 
   root 'posts#main'
   # The priority is based upon order of creation: first created -> highest priority.

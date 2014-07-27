@@ -1,9 +1,10 @@
 <%= @keywords %>
+<%= @authors %>
 
-<%= form_for @admin, as: :patch, url: post_path(@post) do |f| %>
-	Keyword <%= f.text_field :keywords %><br />
-
-	<%= f.submit %>
+<%= form_for @admin, url: update_settings_path do |f| %>
+	Keywords <%= f.text_field :keywords %><br />
+	Authors <%= f.text_field :authors %><br />
+<%= f.submit %>
 
 
 <% end %>

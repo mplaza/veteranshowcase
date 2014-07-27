@@ -1,10 +1,10 @@
+
+
 class Post < ActiveRecord::Base
 
 	def self.party(keywords, authors)
-		keywords = "veteran OR cat OR poodle"
 		keywords = keywords.split(" OR ")
-		puts keywords
-
+	
 		@results = []
 
 		keywords.each do |k|
@@ -29,6 +29,7 @@ class Post < ActiveRecord::Base
 
 
 	def huffington_post(authors)
+
 	end
 
 

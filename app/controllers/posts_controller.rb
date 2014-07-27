@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
 def index
-
-	@results = Post.party(params[:keywords], params[:authors])
+	@admin = Admin.first
+	@results = Post.party(@admin.keywords, @admin.authors)
 end
 
 def main
