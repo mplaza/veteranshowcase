@@ -21,9 +21,20 @@ app.factory('UserPost', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
-app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', function($scope, AdminPost, UserPost) {
+app.factory('FilteredWord', ['$resource', function($resource) {
+  return $resource('/filteredwords/:id',
+     {id: '@id'},
+     {update: { method: 'PATCH'}});
+}]);
+
+app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', function($scope, AdminPost, UserPost, FilteredWord) {
     // $scope.adminPosts = [];
     // $scope.userPosts = [];
+
+    FilteredWord.query(function(words) {
+      $scope.filteredwords = words;
+      console.log($scope.filteredwords);
+    });
 
     AdminPost.query(function(posts) {
       $scope.adminPosts = posts;
