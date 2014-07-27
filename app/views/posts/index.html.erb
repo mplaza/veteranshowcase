@@ -1,10 +1,34 @@
-<% @results.each do |a| %>
+<br><br><br>
 
-	<p> <%= a["title"] %><br>
-			<%= a["author"] %><br>
-			<%= a["publish_date"] %><br>
-			<%= a["url"] %> <br>
-			<%= a["publication"] %>
-	 </p>
+<div class="row">
 
-<% end %>
+	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+		<% @results.each do |a| %>
+			<li> 
+				
+				<div class="post shadow">
+					<a href="<%= a["url"] %>">
+						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+					</a>
+					<div class="description">
+					
+						<a href="<%= a["url"] %>" class="title"><%= a["title"] %><br></a>
+						<div class="description-footer">
+							<%= a["author"] %><br>
+							<%= a["publish_date"] %><br>
+							<%= a["publication"] %>
+						</div>
+						
+			
+					</div>
+					
+				</div>
+				
+		 </li>
+	<% end %>
+
+	</ul>
+	
+
+</div>
+

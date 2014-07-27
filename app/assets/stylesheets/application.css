@@ -12,4 +12,37 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+ *= require foundation
  */
+
+
+.main {
+	background-color: #dbdad5;
+}
+
+.post {
+	background-color: white;
+}
+
+.shadow {
+  -moz-box-shadow:    2px 2px 5px 0px #7d7d7d;
+  -webkit-box-shadow: 2px 2px 5px 0px #7d7d7d;
+  box-shadow:         2px 2px 5px 0px #7d7d7d;
+}
+
+.description {
+	padding: 10px;
+}
+.title {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	color: black;
+}
+.title:hover {
+	color: #595959;
+}
+.description-footer {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 10px;
+}
