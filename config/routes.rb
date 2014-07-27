@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :admins
-  resources :searchresults
+  resources :posts
 
-  root 'searchresults#main'
+  root 'posts#main'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

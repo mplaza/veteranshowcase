@@ -1,4 +1,4 @@
-class Searchresult < ActiveRecord::Base
+class Post < ActiveRecord::Base
 
 	def self.party(keywords, authors)
 

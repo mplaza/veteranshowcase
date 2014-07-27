@@ -1,4 +1,4 @@
-class SearchresultsController < ApplicationController
+class PostsController < ApplicationController
 
 def index
 	@results = Searchresult.party(params[:keywords], params[:authors])
