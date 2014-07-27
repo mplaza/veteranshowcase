@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	respond_to :json, :html
+
 
 before_action :authenticate_user, :only => [:index]
 
@@ -20,5 +22,6 @@ def authenticate_user
     end
 end
 
+	end
 
 end

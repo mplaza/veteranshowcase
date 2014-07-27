@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :admins
   resources :posts
+  resources :adminposts
+  resources :userposts
 
   get 'admins/settings' => 'administrators#settings', as: :settings
   patch 'admins/settings' => 'administrators#update', as: :update_settings
