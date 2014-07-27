@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   post 'filteredwords/new' => 'administrators#filteredwordcreate'
   delete 'filteredwords/:id' => 'administrators#filteredworddestroy', as: :filteredword
 
-  root 'posts#index'
+  get 'admin/' => 'administrators#index', as: :admin
+  root 'administrators#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

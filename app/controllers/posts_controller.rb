@@ -2,9 +2,6 @@ class PostsController < ApplicationController
 	respond_to :json, :html
 
 
-before_action :authenticate_user, :only => [:index]
-
-
 def index
 	@keywords = Keyword.all
 	@authors = Author.all
