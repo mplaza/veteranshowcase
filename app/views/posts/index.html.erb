@@ -28,7 +28,7 @@
 <div class="row">
 	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
-			<li x-ng-repeat="adminPost in adminPosts | filter: ['!looking', '!cards'] "> 		
+			<li x-ng-repeat="adminPost in adminPosts | myFilter:filteredwords "> 		
 
 <!-- 			filteredwords[0].negativesearch -->
 
