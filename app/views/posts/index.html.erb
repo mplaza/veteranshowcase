@@ -1,6 +1,6 @@
-<br><br><br>
+<div x-ng-app="MainApp" x-ng-controller="MainCtrl"> 
 
-<div class="row" x-ng-app="MainApp" x-ng-controller="MainCtrl">
+<div class="row">
 	<div class="filters">
 		SORT BY: 
 			<select class="select-filter">
@@ -21,30 +21,30 @@
 			  <option value="mercedes">Mercedes</option>
 			  <option value="audi">Audi</option>
 			</select>
+			<input x-ng-model="searchTerm">
 	</div>
-	
 </div>
-
 
 <div class="row">
 	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-		<% @results.each do |a| %>
-			<li> 		
+
+			<li x-ng-repeat="adminPost in adminPosts | filter: {title: searchTerm} "> 		
 				<div class="post shadow">
-					<a href="<%= a["url"] %>">
+					<a href="">
 						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
 					</a>
 					<div class="description">		
-						<a href="<%= a["url"] %>" class="title"><%= a["title"] %><br></a>
+						 <h5>{{ adminPost.title }}</h5> <br>
 						<div class="description-footer">
-							<%= a["author"] %><br>
-							<%= a["publish_date"] %><br>
-							<%= a["publication"] %>
+							{{ adminPost.author }} <br>
+							{{ adminPost.publish_date }} <br>
+							{{ adminPost.publication }}
 						</div>
 					</div>		
 				</div>
 		 </li>
-		<% end %>
+	
 	</ul>
 </div>
 
+</div>

@@ -16,6 +16,7 @@
  *= require_self
  */
 
+
  .fullwidth{
  	width: 100%;
  	padding: 20px;
@@ -25,9 +26,14 @@
 .closex:hover{
 	color: #9F000F;
 }
-.main {
+
+body, .main {
+
 	background-color: #dbdad5;
 	font-family: 'Open Sans', sans-serif;
+}
+.main {
+	padding-top: 40px;
 }
 .post {
 	background-color: white;
@@ -40,12 +46,16 @@
 .description {
 	padding: 10px;
 }
-.title {
+h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 	color: black;
+	font-size: 14px;
 }
-.title:hover {
+a {
+	color: black;
+}
+a:hover {
 	color: #595959;
 }
 .description-footer {
