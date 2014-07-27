@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+before_action :authenticate_user, :only => [:index]
+
+
 def index
 	@keywords = Keyword.all
 	@authors = Author.all
@@ -10,6 +13,12 @@ def main
 
 end
 
+def authenticate_user
+    if !current_admin
+      flash[:danger] = "Sorry buddy, you don't have access."
+      redirect_to root_path
+    end
+end
 
 
 end

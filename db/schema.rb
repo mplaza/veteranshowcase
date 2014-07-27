@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 20140727130220) do
     t.string   "title"
     t.string   "author"
     t.string   "publication"
-    t.boolean  "favorite",     default: false, null: false
+    t.boolean  "favorite",     default: false,                 null: false
     t.string   "url"
     t.string   "image"
-    t.datetime "publish_date"
-    t.boolean  "approved",     default: false, null: false
-    t.boolean  "saved",        default: false, null: false
+    t.datetime "publish_date", default: '2001-02-03 00:00:00', null: false
+    t.boolean  "approved",     default: false,                 null: false
+    t.boolean  "saved",        default: false,                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

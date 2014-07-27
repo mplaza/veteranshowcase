@@ -1,4 +1,7 @@
 class AdministratorsController < ApplicationController
+
+before_action :authenticate_user, :only => [:settings]
+
 	def settings
 		@admin = Admin.first
 		# @keywords = Admin.all[0].keywords.split(" OR ")
@@ -78,6 +81,13 @@ class AdministratorsController < ApplicationController
 		@filteredword = Filteredwords.find(params[:id])
 		@filteredword.destroy
 		redirect_to settings_path
+	end
+
+	def authenticate_user
+    	if !current_admin
+      		flash[:danger] = "Sorry buddy, you don't have access."
+      		redirect_to root_path
+    	end
 	end
 
 

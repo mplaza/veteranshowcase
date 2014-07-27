@@ -75,7 +75,7 @@ class Post < ActiveRecord::Base
 
     doc.css(".content-item").each do |item|
 
-    	article = { "title" => item.at_css("h2").text, "publication" => "Blue Star", "url" => url+ item.at_css("a")["href"] }
+    	article = { "title" => item.at_css("h2").text, "publication" => "Blue Star", "url" => url+ item.at_css("a")["href"], "publish_date" => "2001-02-03T00:00:00+00:00" }
 
       @results << article
     end
