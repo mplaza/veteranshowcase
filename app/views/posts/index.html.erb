@@ -30,11 +30,11 @@
 
 			<li x-ng-repeat="adminPost in adminPosts | filter: {title: searchTerm} "> 		
 				<div class="post shadow">
-					<a href="">
+					<a href="{{adminPost.url}}" target="_blank">
 						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
 					</a>
 					<div class="description">		
-						 <h5>{{ adminPost.title }}</h5> <br>
+						 <a href="{{adminPost.url}}" target="_blank"><h5>{{ adminPost.title }}</h5></a> <br>
 						<div class="description-footer">
 							{{ adminPost.author }} <br>
 							{{ adminPost.publish_date }} <br>
