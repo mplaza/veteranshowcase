@@ -16,6 +16,15 @@
  *= require_self
  */
 
+ .fullwidth{
+ 	width: 100%;
+ 	padding: 20px;
+ 	background-color: #dbdad5;
+ }
+
+.closex:hover{
+	color: #9F000F;
+}
 .main {
 	background-color: #dbdad5;
 	font-family: 'Open Sans', sans-serif;
