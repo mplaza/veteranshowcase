@@ -25,6 +25,7 @@ class Post < ActiveRecord::Base
 
 		bluestarfam()
 		bobwoodruff()
+		vetssyracuse()
 			
 		
 		@results = @results.flatten
@@ -98,6 +99,19 @@ class Post < ActiveRecord::Base
 		end
 
 	end
+
+
+	def self.vetssyracuse
+    	url = "http://vets.syr.edu/feed/"
+   		doc = Nokogiri::XML(open(url))
+
+    doc.css("item").each do |item|
+
+    	article = { "title" => item.at_css("title").text, "author" => item.at_xpath("dc:creator").text, "publication" => "Vets Syracuse", "url" => item.at_xpath("link").text, "publish_date" => DateTime.parse(item.at_xpath("pubDate").text)}
+
+    	@results << article
+    end
+  end
 
 
 end
