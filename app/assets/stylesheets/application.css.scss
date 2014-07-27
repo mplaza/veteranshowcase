@@ -17,7 +17,7 @@
  */
 
 
- .fullwidth{
+.fullwidth{
  	width: 100%;
  	padding: 20px;
  	background-color: #dbdad5;
@@ -37,6 +37,7 @@ body, .main {
 }
 .post {
 	background-color: white;
+	position: relative;
 }
 .shadow {
   -moz-box-shadow:    2px 2px 5px 0px #7d7d7d;
@@ -68,4 +69,17 @@ a:hover {
 .select-filter {
 	display: inline-block;
 	width: 150px;
+}
+.add-button {
+	width: 50px;
+	position:absolute;
+	top: 0;
+	right: 0;
+	color:white;
+	text-align: center;
+	background-color: rgba(0,255,0,0.6);
+	transition: 0.5s;
+}
+.add-button:hover {
+	background-color: rgba(0,255,0,0.9);;
 }

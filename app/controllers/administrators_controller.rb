@@ -3,7 +3,7 @@ class AdministratorsController < ApplicationController
 before_action :authenticate_user, :only => [:index, :settings]
 	
 	def index
-
+		
 	end
 
 	def settings
