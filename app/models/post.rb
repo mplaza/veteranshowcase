@@ -19,10 +19,6 @@ class Post < ActiveRecord::Base
 		huffington_post
 			
 		@results = @results.flatten
-
-		p "feedzilla"
-		p @results
-
 		@results
 	end
 
