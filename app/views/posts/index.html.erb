@@ -28,20 +28,20 @@
 <div class="row">
 	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
-			<li x-ng-repeat="adminPost in adminPosts | myFilter:filteredwords | filter: searchTerm "> 		
+			<li x-ng-repeat="userPost in userPosts "> 		
 
 <!-- 			filteredwords[0].negativesearch -->
 
 				<div class="post shadow">
-					<a href="{{adminPost.url}}" target="_blank">
+					<a href="{{userPost.url}}" target="_blank">
 						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
 					</a>
 					<div class="description">		
-						 <a href="{{adminPost.url}}" target="_blank"><h5>{{ adminPost.title }}</h5></a> <br>
+						 <a href="{{userPost.url}}" target="_blank"><h5>{{ userPost.title }}</h5></a> <br>
 						<div class="description-footer">
-							{{ adminPost.author }} <br>
-							{{ adminPost.publish_date }} <br>
-							{{ adminPost.publication }}
+							{{ userPost.author }} <br>
+							{{ userPost.publish_date }} <br>
+							{{ userPost.publication }}
 						</div>
 					</div>		
 				</div>
