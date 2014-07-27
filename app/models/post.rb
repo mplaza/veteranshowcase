@@ -29,10 +29,6 @@ class Post < ActiveRecord::Base
 			
 		
 		@results = @results.flatten
-
-		p "feedzilla"
-		p @results
-
 		@results
 	end
 
@@ -47,8 +43,6 @@ class Post < ActiveRecord::Base
 			article = { "title" => a["title"], "author" => a["author"], "publication" => a["source"], "url" => a["url"], "publish_date" => DateTime.parse(a["publish_date"]) }
 			@results << article
 		end
-
-		# @results << response.parsed_response["articles"]
 	end
 
 
@@ -63,7 +57,6 @@ class Post < ActiveRecord::Base
 			article = { "title" => item.at_css("title").text, "author" => item.at_css("author").at_css("name").text, "publication" => "Huffington Post", "url" => item.at_css("link")["href"], "publish_date" => DateTime.parse(item.at_css("published").text) }
 			@results << article
 		end
-
 	end
 
 	# def self.homes100k(keyword)

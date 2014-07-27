@@ -1,10 +1,38 @@
-<% @results.each do |a| %>
+<br><br><br>
 
-	<p> <%= a["title"] %><br>
-			<%= a["author"] %><br>
-			<%= a["publish_date"] %><br>
-			<%= a["url"] %> <br>
-			<%= a["publication"] %>
-	 </p>
+<div class="row">
+	<div class="filters">
+		SORT BY: 
+			<select>
+			  <option value="volvo">Volvo</option>
+			  <option value="saab">Saab</option>
+			  <option value="mercedes">Mercedes</option>
+			  <option value="audi">Audi</option>
+			</select>
+	</div>
+	
+</div>
 
-<% end %>
+
+<div class="row">
+	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+		<% @results.each do |a| %>
+			<li> 		
+				<div class="post shadow">
+					<a href="<%= a["url"] %>">
+						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+					</a>
+					<div class="description">		
+						<a href="<%= a["url"] %>" class="title"><%= a["title"] %><br></a>
+						<div class="description-footer">
+							<%= a["author"] %><br>
+							<%= a["publish_date"] %><br>
+							<%= a["publication"] %>
+						</div>
+					</div>		
+				</div>
+		 </li>
+		<% end %>
+	</ul>
+</div>
+
