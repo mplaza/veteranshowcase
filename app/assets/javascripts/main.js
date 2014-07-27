@@ -33,18 +33,52 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', f
 
     FilteredWord.query(function(words) {
       $scope.filteredwords = words;
-      // console.log($scope.filteredwords);
     });
 
     AdminPost.query(function(posts) {
       $scope.adminPosts = posts;
-      // console.log($scope.adminPosts);
     });
+
+    $scope.newUserPost = new UserPost();
 
     UserPost.query(function(posts) {
       $scope.userPosts = posts;
+      console.log($scope.userPosts);
     });
 
+    $scope.selectPost = function(post) {
+      $scope.selectedPost = post;
+      console.log($scope.selectedPost);
+    }
+
+    $scope.approvePost = function() {
+      $scope.selectedPost.approved = true;
+      $scope.newUserPost = $scope.selectedPost;
+      $scope.newUserPost.$save(function(post) {
+        $scope.newUserPost = new UserPost();
+      });
+    }
+
+    $scope.savePost = function() {
+      $scope.selectedPost.saved = true;
+      $scope.newUserPost = $scope.selectedPost;
+      $scope.newUserPost.$save(function(post) {
+        $scope.newUserPost = new UserPost();
+      });
+    }
+
+    $scope.savePost = function() {
+      $scope.selectedPost.approved = true;
+      $scope.selectedPost.favorite = true;
+      $scope.newUserPost = $scope.selectedPost;
+      $scope.newUserPost.$save(function(post) {
+        $scope.newUserPost = new UserPost();
+      });
+    }
+
+    $scope.deletePost = function() {
+      // function here
+    }
 }])
 
 app.filter('myFilter', function() {

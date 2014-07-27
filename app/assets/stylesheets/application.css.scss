@@ -47,6 +47,11 @@ body, .main {
 .description {
 	padding: 10px;
 }
+h3, h4 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	color: black;
+}
 h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
@@ -71,7 +76,8 @@ a:hover {
 	width: 150px;
 }
 .add-button {
-	width: 50px;
+	/*width: 50px;*/
+	padding: 0 6px;
 	position:absolute;
 	top: 0;
 	right: 0;
@@ -81,5 +87,21 @@ a:hover {
 	transition: 0.5s;
 }
 .add-button:hover {
-	background-color: rgba(0,255,0,0.9);;
+	background-color: rgba(0,255,0,0.9);
+	color: white;
+}
+.button {
+	font-size: 18px;
+	padding: 8px 13px;
+	color: white;
+	display: inline-block;
+}
+.approve {
+	background-color: rgba(255,0,0,0.6);
+}
+.save {
+	background-color: rgba(0,255,0,0.6);
+}
+.feature {
+	background-color: rgba(0,0,255,0.6);
 }
