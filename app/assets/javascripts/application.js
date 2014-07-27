@@ -17,6 +17,5 @@
 //= require foundation
 //= require main
 
-$(document).foundation();
 
 $(function(){ $(document).foundation(); });
