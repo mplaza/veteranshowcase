@@ -1,0 +1,9 @@
+<%= @keywords %>
+
+<%= form_for @admin, as: :patch, url: post_path(@post) do |f| %>
+	Keyword <%= f.text_field :keywords %><br />
+
+	<%= f.submit %>
+
+
+<% end %>

@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20140727100800) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "keywords"
-    t.string   "authors"
+    t.string   "keywords",               default: "", null: false
+    t.string   "authors",                default: "", null: false
     t.string   "filteredwords"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 20140727100800) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "searchresults", force: true do |t|
+  create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "publication"
     t.boolean  "favorite"
     t.string   "url"
     t.string   "image"
-    t.boolean  "approvedpost"
-    t.boolean  "starredpost"
+    t.boolean  "approved"
+    t.boolean  "saved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

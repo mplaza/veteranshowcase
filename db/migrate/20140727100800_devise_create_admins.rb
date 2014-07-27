@@ -30,8 +30,8 @@ class DeviseCreateAdmins < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :keywords
-      t.string :authors
+      t.string :keywords, default: "", null: false
+      t.string :authors, default: "", null: false
       t.string :filteredwords
 
       t.timestamps
