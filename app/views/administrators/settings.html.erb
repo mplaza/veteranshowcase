@@ -1,10 +1,33 @@
-<%= @keywords %>
-<%= @authors %>
+Keywords: 
+<% @keywords.each do |k| %>
+	<%= k.searchterm %> 
+	<%= link_to 'Delete', keyword_path(k), method: :delete, data: {confirm: "Are you sure you want to delete this permanently?"} %>
 
-<%= form_for @admin, url: update_settings_path do |f| %>
-	Keywords <%= f.text_field :keywords %><br />
-	Authors <%= f.text_field :authors %><br />
-<%= f.submit %>
+<% end %>
 
+<%= form_for @keyword, url: new_keyword_path do |f| %>
+	New Keyword <%= f.text_field :searchterm %><br />
+	<%= f.submit %>
+<% end %>
 
+Authors: 
+<% @authors.each do |k| %>
+	<%= k.searchauthor %>
+	<%= link_to 'Delete', author_path(k), method: :delete, data: {confirm: "Are you sure you want to delete this permanently?"} %>
+<% end %>
+
+<%= form_for @author, url: new_author_path do |f| %>
+	New Author <%= f.text_field :searchauthor %><br />
+	<%= f.submit %>
+<% end %>
+
+Filtered Words: 
+<% @filteredwords.each do |k| %>
+	<%= k.negativesearch %>
+	<%= link_to 'Delete', filteredword_path(k), method: :delete, data: {confirm: "Are you sure you want to delete this permanently?"} %>
+<% end %>
+
+<%= form_for @filteredword, url: new_filteredword_path do |f| %>
+	Negative Search Terms <%= f.text_field :negativesearch %><br />
+	<%= f.submit %>
 <% end %>

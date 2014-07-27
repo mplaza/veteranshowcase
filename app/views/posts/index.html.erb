@@ -1,5 +1,10 @@
 <% @results.each do |a| %>
 
-	<p> <%= a["title"] %> </p>
+	<p> <%= a["title"] %><br>
+			<%= a["author"] %><br>
+			<%= a["publish_date"] %><br>
+			<%= a["url"] %> <br>
+			<%= a["publication"] %>
+	 </p>
 
 <% end %>
