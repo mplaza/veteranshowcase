@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  publication: MyString
+  favorite: false
+  url: MyString
+  image: MyString
+  approvedpost: false
+  starredpost: false
+
+two:
+  title: MyString
+  publication: MyString
+  favorite: false
+  url: MyString
+  image: MyString
+  approvedpost: false
+  starredpost: false
