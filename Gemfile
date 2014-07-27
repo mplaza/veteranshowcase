@@ -27,7 +27,6 @@ gem 'nokogiri'
 gem 'json'
 
 gem 'devise'
-gem 'angularjs-rails'
 gem "active_model_serializers"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
