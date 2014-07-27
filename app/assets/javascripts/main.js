@@ -49,7 +49,7 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', f
 
 app.filter('myFilter', function() {
   console.log('filtering');
-   return function(items, filtword) {
+   return function(items, filtword ) {
     var filtered = [];
     var matchcounter = 0;
     angular.forEach(items, function(item) {
@@ -68,7 +68,6 @@ app.filter('myFilter', function() {
       }
 
     });
-    console.log(filtered);
     return filtered;
 
   };
