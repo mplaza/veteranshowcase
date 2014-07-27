@@ -28,7 +28,9 @@
 <div class="row">
 	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
-			<li x-ng-repeat="adminPost in adminPosts | myFilter:filteredwords | filter: searchTerm "> 		
+
+			<li x-ng-repeat="adminPost in adminPosts | myFilter: filteredwords | filter: searchTerm "> 		
+
 				<div class="post shadow">
 					<a href="#" data-reveal-id="myModal" class="add-button" x-ng-click="selectPost(adminPost)">ADD</a>
 					<a href="{{adminPost.url}}" target="_blank">
@@ -48,10 +50,27 @@
 	</ul>
 </div>
 
-<div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Awesome. I have it.</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+<div id="myModal" class="reveal-modal tiny" data-reveal>
+	
+		<div class="row">
+			
+				<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+				<div class="description">		
+				 	<h4>{{ selectedPost.title }}</h4>
+					<div class="description-footer">
+						{{ selectedPost.author }} <br>
+						{{ selectedPost.publish_date }} <br>
+						{{ selectedPost.publication }}
+					</div>
+					<div class="button approve" x-ng-click="approvePost()">POST</div>
+					<div class="button save" x-ng-click="savePost()">SAVE</div>
+					<div class="button feature" x-ng-click="featurePost()">FEATURE</div>
+					<!-- buttons for approve for post, save for later, feature -->
+				</div>
+			
+		</div>
+		
+
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
