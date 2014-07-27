@@ -7,20 +7,17 @@ require 'date'
 class Post < ActiveRecord::Base
 
 	def self.party(keywords, authors)
-		keywords = keywords.split(" OR ")
-		authors = authors.split(" OR ")
+		keywords = keywords
+		authors = authors
 	
 		@results = []
 
 		keywords.each do |k|
-			feedzilla(k)
+			feedzilla(k.searchterm)
 		end 
-
-		
 		
 		huffington_post
-		
-		
+			
 		@results = @results.flatten
 
 		p "feedzilla"
