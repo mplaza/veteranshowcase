@@ -36,6 +36,23 @@ app.factory('UserView', ['$resource', function($resource) {
 app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', 'UserView', function($scope, AdminPost, UserPost, FilteredWord, UserView) {
     // $scope.adminPosts = [];
     // $scope.userPosts = [];
+    $scope.Math = window.Math;
+    $scope.randomPictures = [
+      "http://i89.photobucket.com/albums/k223/slvadrgn/post14_zpsccaf1915.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/post13_zpsfb1e824f.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/post12_zpsae30fc46.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/post15_zpscfb0c455.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post3_zps01cf609e.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post1_zpsd671a814.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post2_zps6bc26e1f.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post6_zpsbacb6338.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post8_zps3ea320bb.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post5_zps55e73726.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post10_zps1be0ae09.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post7_zpsa3c366f7.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post9_zps99abe1b8.png",
+      "http://i89.photobucket.com/albums/k223/slvadrgn/Got%20Your%206%20Hackathon%20Images/post4_zpscf011073.png"
+    ]
 
     FilteredWord.query(function(words) {
       $scope.filteredwords = words;
@@ -76,6 +93,8 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', '
       $scope.selectedPost.approved = true;
       $scope.newUserPost = $scope.selectedPost;
       $scope.newUserPost.$save(function(post) {
+        position = $scope.adminPosts.indexOf($scope.selectedPost);
+        $scope.adminPosts.splice(position, 1);
         $scope.newUserPost = new UserPost();
       });
     }
@@ -84,7 +103,16 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', '
       $scope.selectedPost.saved = true;
       $scope.newUserPost = $scope.selectedPost;
       $scope.newUserPost.$save(function(post) {
+        position = $scope.adminPosts.indexOf($scope.selectedPost);
+        $scope.adminPosts.splice(position, 1);
         $scope.newUserPost = new UserPost();
+      });
+    }
+
+    $scope.updatePost = function() {
+      $scope.selectedPost.$update(function() { 
+      }, function(errors) {
+        $scope.errors = errors.data;
       });
     }
 
@@ -93,9 +121,12 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', '
       $scope.selectedPost.favorite = true;
       $scope.newUserPost = $scope.selectedPost;
       $scope.newUserPost.$save(function(post) {
+        position = $scope.adminPosts.indexOf($scope.selectedPost);
+        $scope.adminPosts.splice(position, 1);
         $scope.newUserPost = new UserPost();
       });
     }
+
 
     $scope.featureOTSPost = function(post) {
       $scope.mouseoverPost = post;
@@ -104,7 +135,7 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', '
       $scope.mouseoverPost.favorite = true;
       $scope.mouseoverPost.$update(function() { 
       }, function(errors) {
-        $scope.errors = errors.data
+        $scope.errors = errors.data;
       });
     }
 
@@ -114,24 +145,27 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', '
       $scope.mouseoverPost.approved = true;
       $scope.mouseoverPost.$update(function() { 
       }, function(errors) {
-        $scope.errors = errors.data
+        $scope.errors = errors.data;
       });
     }
 
     $scope.updatePost = function(selectedPost) {
       $scope.selectedPost.$update(function() { 
       }, function(errors) {
-        $scope.errors = errors.data
+        $scope.errors = errors.data;
       });
     }
 
-    $scope.deletePost = function(selectedPost) {
-      selectedPost.$delete(function() {
-
+    $scope.deletePost = function () {
+      $scope.selectedPost.$delete(function() {
+        position = $scope.userPosts.indexOf($scope.selectedPost);
+        $scope.userPosts.splice(position, 1);
       }, function(errors) {
-        $scope.errors = errors.data
+        $scope.errors = errors.data;
       });
     }
+
+    $scope.added = false;
 }])
 
 app.filter('myFilter', function() {

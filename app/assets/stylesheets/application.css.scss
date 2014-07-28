@@ -28,7 +28,6 @@
 }
 
 body, .main {
-
 	background-color: #dbdad5;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -153,4 +152,10 @@ a:hover {
 }
 .feature {
 	background-color: rgba(0,0,255,0.6);
+}
+.glow {
+	background-color: rgba(255,0,0,0.3);
+}
+.post-picture {
+	width: 100%;
 }

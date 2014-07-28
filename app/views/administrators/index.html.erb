@@ -29,7 +29,7 @@
 				<div class="post shadow">
 					<a href="#" data-reveal-id="myModal" class="add-button" x-ng-click="selectPost(adminPost)">ADD</a>
 					<a href="{{adminPost.url}}" target="_blank">
-						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+						<img class="post-picture" src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
 					</a>
 					<div class="description">		
 						 <a href="{{adminPost.url}}" target="_blank"><h5>{{ adminPost.title }}</h5></a> <br>
@@ -38,7 +38,7 @@
 							{{ adminPost.publish_date }} <br>
 							{{ adminPost.publication }}
 						</div>
-					</div>		
+					</div>
 				</div>
 		
 		 </li>
@@ -50,7 +50,7 @@
 	
 		<div class="row">
 			
-				<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+				<img class="post-picture" src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
 				<div class="description">		
 				 	<h4>{{ selectedPost.title }}</h4>
 					<div class="description-footer">
@@ -58,11 +58,13 @@
 						{{ selectedPost.publish_date }} <br>
 						{{ selectedPost.publication }}
 					</div>
-					<div class="button approve" x-ng-click="approvePost()">POST</div>
+					<a href="" class="custom-close-reveal-modal"><div class="button approve" x-ng-click="approvePost()">POST</div></a>
 					<div class="button save" x-ng-click="savePost()">SAVE</div>
 					<div class="button feature" x-ng-click="featurePost()">FEATURE</div>
 					<!-- buttons for approve for post, save for later, feature -->
 				</div>
+			
+
 			
 		</div>
 		

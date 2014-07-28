@@ -31,10 +31,11 @@
 			<li x-ng-repeat="userPost in userPosts "> 		
 
 <!-- 			filteredwords[0].negativesearch -->
-
-				<div class="post shadow">
+				
+				<div class="post shadow" ng-class="{glow: userPost.favorite}">
 					<a href="{{userPost.url}}" target="_blank">
-						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+						<img src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
+						
 					</a>
 					<div class="description">		
 						 <a href="{{userPost.url}}" target="_blank"><h5>{{ userPost.title }}</h5></a> <br>

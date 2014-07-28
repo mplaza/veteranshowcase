@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20140727130220) do
     t.string   "last_sign_in_ip"
     t.string   "keywords",               default: "", null: false
     t.string   "authors",                default: "", null: false
+    t.string   "about",                  default: "", null: false
+    t.string   "contact",                default: "", null: false
     t.string   "filteredwords"
     t.datetime "created_at"
     t.datetime "updated_at"

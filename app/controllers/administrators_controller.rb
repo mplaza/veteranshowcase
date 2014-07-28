@@ -1,12 +1,10 @@
 class AdministratorsController < ApplicationController
 
 before_action :authenticate_user, :only => [:index, :settings]
-	
-	def index
-		
-	end
-
 respond_to :json, :html
+
+	def index
+	end
 
 	def settings
 		@admin = Admin.first
@@ -29,6 +27,25 @@ respond_to :json, :html
 	# 	end
 	# end
 
+	def editinfo
+		@admin = Admin.first
+	end
+
+	def updateinfo
+		if @admin.update(admin_params)
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json { render nothing: true, status: :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { render 'edit' }
+        format.json { render json: @admin.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+
+
 	def newkeyword
 		@keyword = Keyword.new
 	end
@@ -40,7 +57,6 @@ respond_to :json, :html
 		else 
 			render 'newkeyword'
 		end
-
 	end
 
 	def keyworddestroy
@@ -87,6 +103,7 @@ respond_to :json, :html
 		@filteredwords = Filteredwords.all
 		respond_with @filteredwords
 	end
+
 	def filteredworddestroy
 		@filteredword = Filteredwords.find(params[:id])
 		@filteredword.destroy
@@ -106,7 +123,10 @@ respond_to :json, :html
     	end
 	end
 
-
+	def admin_params
+		params.require(:admin).permit(:about, :contact)
+	end
+		
 	def keyword_params
 		params.require(:keyword).permit(:searchterm, :admin_id)
 	end

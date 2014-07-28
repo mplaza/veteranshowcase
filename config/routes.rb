@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'admins/savedposts' => 'administrators#savedposts', as: :admin_savedposts
   get 'savedposts' => 'userposts#savedpostindex'
   patch 'savedposts/:id' => 'userposts#update'
+  get 'admins/editinfo' => 'administrators#editinfo', as: :edit_info
+  patch 'admins/editinfo' => 'administrators#updateinfo', as: :update_info
 
   get 'keywords/new' => 'administrators#newkeyword', as: :new_keyword
   post 'keywords/new' => 'administrators#keywordcreate'
