@@ -8,6 +8,7 @@ class AdminpostsController < ApplicationController
 		respond_with @results
 	end
 
+
  	def create
     @post = Post.new(post_params)
 

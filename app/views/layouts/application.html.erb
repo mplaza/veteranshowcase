@@ -25,6 +25,8 @@
         <!-- Right Nav Section -->
         <ul class="right">
           <% if current_admin != nil %>
+            <li><a href="/admins/userview">User View</a></li>
+            <li><a href="/admins/savedposts">Saved Posts</a></li>
             <li><a href="/admins/settings">Filter Settings</a></li>
             <li><a href="/admins/editinfo">Edit Information</a></li>
             <li><%= link_to "Sign Out", destroy_admin_session_path, :method => :delete %></li>

@@ -110,6 +110,12 @@ respond_to :json, :html
 		redirect_to settings_path
 	end
 
+	def userview
+  	end
+
+  	def savedposts
+  	end
+
 	def authenticate_user
     	if !current_admin
       		flash[:danger] = "Sorry buddy, you don't have access."

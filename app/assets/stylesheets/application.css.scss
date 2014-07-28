@@ -85,6 +85,55 @@ a:hover {
 	background-color: rgba(0,255,0,0.6);
 	transition: 0.5s;
 }
+
+.remove-button {
+	/*width: 50px;*/
+	padding: 0 6px;
+	position:absolute;
+	top: 30px;
+	right: 0;
+	color:white;
+	text-align: center;
+	background-color: rgba(255,0,0,0.6);
+	transition: 0.5s;
+}
+.remove-button:hover {
+	color:white;
+	background-color: rgba(255,0,0,0.9);
+}
+
+.feature-button {
+	/*width: 50px;*/
+	padding: 0 6px;
+	position:absolute;
+	top: 60px;
+	right: 0;
+	color:white;
+	text-align: center;
+	background-color: rgba(215, 121, 44, 0.6);
+	transition: 0.5s;
+}
+.feature-button:hover {
+	background-color: rgba(215, 121, 44, 0.9);
+	color:white;
+}
+
+.post-button {
+	/*width: 50px;*/
+	padding: 0 6px;
+	position:absolute;
+	top: 90px;
+	right: 0;
+	color:white;
+	text-align: center;
+	background-color: rgba(22, 101, 251, 0.6);
+	transition: 0.5s;
+}
+.post-button:hover {
+	background-color: rgba(22, 101, 251, 0.9);
+	color:white;
+}
+
 .add-button:hover {
 	background-color: rgba(0,255,0,0.9);
 	color: white;
