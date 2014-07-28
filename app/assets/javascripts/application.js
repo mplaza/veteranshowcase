@@ -18,4 +18,4 @@
 //= require main
 
 
-$(function(){ $(document).foundation(); });
+
