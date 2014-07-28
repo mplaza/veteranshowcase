@@ -27,6 +27,7 @@ gem 'nokogiri'
 gem 'json'
 gem 'devise'
 gem "active_model_serializers"
+gem "font-awesome-rails"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 
