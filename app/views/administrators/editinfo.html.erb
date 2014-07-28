@@ -1,0 +1,4 @@
+<%= form_for @admin do |f| %>
+	About: <%= f.text_field :about, url: edit_info_path %><br />
+	<%= f.submit 'Update "About" Content', method: :patch, :class => "button disabled expand" %>
+<% end %>

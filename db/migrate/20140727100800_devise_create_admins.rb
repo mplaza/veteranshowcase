@@ -32,6 +32,8 @@ class DeviseCreateAdmins < ActiveRecord::Migration
 
       t.string :keywords, default: "", null: false
       t.string :authors, default: "", null: false
+      t.string :about, default: "", null: false
+      t.string :contact, default: "", null: false
       t.string :filteredwords
 
       t.timestamps
