@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch 'savedposts/:id' => 'userposts#update'
   get 'admins/editinfo' => 'administrators#editinfo', as: :edit_info
   patch 'admins/editinfo' => 'administrators#updateinfo', as: :update_info
+  get 'about' => 'administrators#about', as: :about
 
   get 'keywords/new' => 'administrators#newkeyword', as: :new_keyword
   post 'keywords/new' => 'administrators#keywordcreate'
