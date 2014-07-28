@@ -27,7 +27,13 @@ app.factory('FilteredWord', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
-app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', function($scope, AdminPost, UserPost, FilteredWord) {
+app.factory('UserView', ['$resource', function($resource) {
+  return $resource('/savedposts/:id',
+     {id: '@id'},
+     {update: { method: 'PATCH'}});
+}]);
+
+app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', 'UserView', function($scope, AdminPost, UserPost, FilteredWord, UserView) {
     // $scope.adminPosts = [];
     // $scope.userPosts = [];
 
@@ -39,12 +45,27 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', f
       $scope.adminPosts = posts;
     });
 
+    UserView.query(function(posts){
+      $scope.userViews = posts;
+    })
+
     $scope.newUserPost = new UserPost();
 
     UserPost.query(function(posts) {
       $scope.userPosts = posts;
       console.log($scope.userPosts);
     });
+
+    $scope.showSavedPost = function(){
+      if($scope.savedfilter == true){
+        $scope.savedfilter = false
+      }
+      else {
+        $scope.savedfilter = true
+      }
+    }
+
+
 
     $scope.selectPost = function(post) {
       $scope.selectedPost = post;
@@ -67,7 +88,7 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', f
       });
     }
 
-    $scope.savePost = function() {
+    $scope.featurePost = function() {
       $scope.selectedPost.approved = true;
       $scope.selectedPost.favorite = true;
       $scope.newUserPost = $scope.selectedPost;
@@ -76,14 +97,46 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', f
       });
     }
 
-    $scope.deletePost = function() {
-      // function here
+    $scope.featureOTSPost = function(post) {
+      $scope.mouseoverPost = post;
+      $scope.mouseoverPost.saved = false;
+      $scope.mouseoverPost.approved = true;
+      $scope.mouseoverPost.favorite = true;
+      $scope.mouseoverPost.$update(function() { 
+      }, function(errors) {
+        $scope.errors = errors.data
+      });
+    }
+
+    $scope.postOTSPost = function(post) {
+      $scope.mouseoverPost = post;
+      $scope.mouseoverPost.saved = false;
+      $scope.mouseoverPost.approved = true;
+      $scope.mouseoverPost.$update(function() { 
+      }, function(errors) {
+        $scope.errors = errors.data
+      });
+    }
+
+    $scope.updatePost = function(selectedPost) {
+      $scope.selectedPost.$update(function() { 
+      }, function(errors) {
+        $scope.errors = errors.data
+      });
+    }
+
+    $scope.deletePost = function(selectedPost) {
+      selectedPost.$delete(function() {
+
+      }, function(errors) {
+        $scope.errors = errors.data
+      });
     }
 }])
 
 app.filter('myFilter', function() {
   console.log('filtering');
-   return function(items, filtword ) {
+   return function(items, filtword, sfilter) {
     var filtered = [];
     var matchcounter = 0;
     angular.forEach(items, function(item) {
@@ -100,10 +153,12 @@ app.filter('myFilter', function() {
       if(matchcounter == 0){
         filtered.push(item);
       }
-
     });
     return filtered;
 
   };
+    
+
+
 });
 

@@ -1,0 +1,67 @@
+<div x-ng-app="MainApp" x-ng-controller="MainCtrl"> 
+
+<div class="row">
+	<div class="filters">
+		Search by: 
+			<input x-ng-model="searchTerm">
+	</div>
+</div>
+
+<div class="row">
+	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+
+			<li x-ng-repeat="userView in userViews "> 		
+
+<!-- 			filteredwords[0].negativesearch -->
+
+				<div class="post shadow">
+				<a href="#" data-reveal-id="myModal" class="add-button" x-ng-click="selectPost(userView)">EDIT</a>
+				<a href="#"  class="remove-button" x-ng-click="deletePost(userView)">DELETE</a>
+				<a href="#"  class="feature-button" x-ng-click="featureOTSPost(userView)">FEATURE</a>
+				<a href="#"  class="post-button" x-ng-click="postOTSPost(userView)">POST</a>
+
+					<a href="{{userView.url}}" target="_blank">
+						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+					</a>
+					<div class="description">		
+						 <a href="{{userView.url}}" target="_blank"><h5>{{ userView.title }}</h5></a> <br>
+						<div class="description-footer">
+							{{ userView.author }} <br>
+							{{ userView.publish_date }} <br>
+							{{ userView.publication }}
+						</div>
+					</div>		
+				</div>
+		 </li>
+	
+	</ul>
+</div>
+
+
+<div id="myModal" class="reveal-modal tiny" data-reveal>
+	
+		<div class="row">
+			
+				<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+				<div class="description">	
+					<form ng-submit = "updatePost(selectedPost)">	
+					<div class="description-footer">
+						<input x-ng-model="selectedPost.title"> <br>
+						<input x-ng-model="selectedPost.publish_date"> <br>
+						<input x-ng-model="selectedPost.publication"> <br>
+						<input type="submit" value="update" class="button">
+					</div>
+					</form>
+					<div class="button approve" x-ng-click="approvePost()">POST</div>
+					<div class="button save" x-ng-click="savePost()">SAVE</div>
+					<div class="button feature" x-ng-click="featurePost()">FEATURE</div>
+					<!-- buttons for approve for post, save for later, feature -->
+				</div>
+			
+		</div>
+		
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+</div>
