@@ -25,7 +25,6 @@ gem 'rails_12factor'
 gem 'httparty'
 gem 'nokogiri'
 gem 'json'
-
 gem 'devise'
 gem "active_model_serializers"
 

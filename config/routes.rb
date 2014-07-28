@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'admins/settings' => 'administrators#settings', as: :settings
   patch 'admins/settings' => 'administrators#update', as: :update_settings
+  get 'admins/editinfo' => 'administrators#editinfo', as: :edit_info
+  patch 'admins/editinfo' => 'administrators#updateinfo', as: :update_info
 
   get 'keywords/new' => 'administrators#newkeyword', as: :new_keyword
   post 'keywords/new' => 'administrators#keywordcreate'
