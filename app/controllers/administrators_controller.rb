@@ -116,6 +116,10 @@ respond_to :json, :html
   	def savedposts
   	end
 
+  	def about 
+  		
+  	end
+
 	def authenticate_user
     	if !current_admin
       		flash[:danger] = "Sorry buddy, you don't have access."
