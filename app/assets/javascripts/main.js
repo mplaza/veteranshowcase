@@ -36,6 +36,7 @@ app.factory('UserView', ['$resource', function($resource) {
 app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', 'UserView', function($scope, AdminPost, UserPost, FilteredWord, UserView) {
     // $scope.adminPosts = [];
     // $scope.userPosts = [];
+    $(document).foundation();
     $scope.Math = window.Math;
     $scope.randomPictures = [
       "http://i89.photobucket.com/albums/k223/slvadrgn/post14_zpsccaf1915.png",
