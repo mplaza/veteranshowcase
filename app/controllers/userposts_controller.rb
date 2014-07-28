@@ -2,12 +2,12 @@ class UserpostsController < ApplicationController
 	respond_to :json, :html
 	
 	def index
-		@results = Post.where(approved: true)
+		@results = Post.where(approved: true).sort { |a,b| b.created_at <=> a.created_at }
 		respond_with @results
 	end
 
 	def savedpostindex
-		@results = Post.where(saved: true)
+		@results = Post.where(saved: true).sort { |a,b| b.created_at <=> a.created_at }
 		respond_with @results
 	end
 

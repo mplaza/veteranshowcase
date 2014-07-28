@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="filters">
 		Search by: 
-			<input x-ng-model="searchTerm">
+			<input x-ng-model="searchTerm">&nbsp;<i class="fa fa-search fa-lg"></i>
 	</div>
 </div>
 
@@ -21,7 +21,7 @@
 				<a href="#"  class="post-button" x-ng-click="postOTSPost(userView)">POST</a>
 
 					<a href="{{userView.url}}" target="_blank">
-						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+						<img src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
 					</a>
 					<div class="description">		
 						 <a href="{{userView.url}}" target="_blank"><h5>{{ userView.title }}</h5></a> <br>
@@ -42,7 +42,7 @@
 	
 		<div class="row">
 			
-				<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+				<img src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
 				<div class="description">	
 					<form ng-submit = "updatePost(selectedPost)">	
 					<div class="description-footer">

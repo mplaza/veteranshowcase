@@ -3,22 +3,22 @@
 <div class="row">
 	<div class="filters">
 		Search by: 
-			<input x-ng-model="searchTerm">
+			<input x-ng-model="searchTerm">&nbsp;<i class="fa fa-search fa-lg"></i>
 	</div>
 </div>
 
 <div class="row">
 	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
-			<li x-ng-repeat="userPost in userPosts "> 		
+			<li x-ng-repeat="userPost in userPosts | orderBy : userPost.created_at : reverse"> 		
 
 <!-- 			filteredwords[0].negativesearch -->
 
-				<div class="post shadow">
+				<div class="post shadow" ng-class="{glow: userPost.favorite}">
 				<a href="#" data-reveal-id="myModal" class="add-button" x-ng-click="selectPost(userPost)">EDIT</a>
 				<a href="#"  class="remove-button" x-ng-click="userviewdeletePost(userPost)">DELETE</a>
 					<a href="{{userPost.url}}" target="_blank">
-						<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+						<img src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
 					</a>
 					<div class="description">		
 						 <a href="{{userPost.url}}" target="_blank"><h5>{{ userPost.title }}</h5></a> <br>
@@ -39,7 +39,7 @@
 	
 		<div class="row">
 			
-				<img src="http://cdn.frontpagemag.com/wp-content/uploads/2012/04/veteran.gif" alt="">
+				<img src="{{randomPictures[Math.floor(Math.random()*randomPictures.length)]}}" alt="">
 				<div class="description">	
 					<form ng-submit = "updatePost(selectedPost)">	
 					<div class="description-footer">
