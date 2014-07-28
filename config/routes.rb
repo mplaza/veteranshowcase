@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'admins/editinfo' => 'administrators#editinfo', as: :edit_info
   patch 'admins/editinfo' => 'administrators#updateinfo', as: :update_info
   get 'about' => 'administrators#about', as: :about
+  delete 'savedposts/:id' => 'userposts#destroy'
 
   get 'keywords/new' => 'administrators#newkeyword', as: :new_keyword
   post 'keywords/new' => 'administrators#keywordcreate'

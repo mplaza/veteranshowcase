@@ -156,7 +156,18 @@ app.controller('MainCtrl', ['$scope', 'AdminPost', 'UserPost', 'FilteredWord', '
       });
     }
 
-    $scope.deletePost = function () {
+    $scope.deletePost = function (post) {
+      $scope.selectedPost = post
+      $scope.selectedPost.$delete(function() {
+        position = $scope.userPosts.indexOf($scope.selectedPost);
+        $scope.userPosts.splice(position, 1);
+      }, function(errors) {
+        $scope.errors = errors.data;
+      });
+    }
+
+    $scope.userviewdeletePost = function (post) {
+      $scope.selectedPost = post
       $scope.selectedPost.$delete(function() {
         position = $scope.userPosts.indexOf($scope.selectedPost);
         $scope.userPosts.splice(position, 1);
